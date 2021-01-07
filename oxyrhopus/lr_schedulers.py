@@ -162,25 +162,25 @@ def get_lr_scheduler(optimizer, *args, **kwargs):
     name = _args.pop("name").lower().strip()
     if name == "none":
         return None
-    elif name == "lambda":
+    elif name == "lambdalr":
         return torch.optim.lr_scheduler.LambdaLR(optimizer, **_args)
-    elif name == "multiplicative":
+    elif name == "multiplicativelr":
         return torch.optim.lr_scheduler.MultiplicativeLR(optimizer, **_args)
-    elif name == "step":
+    elif name == "steplr":
         return torch.optim.lr_scheduler.StepLR(optimizer, **_args)
-    elif name == "multistep":
+    elif name == "multisteplr":
         return torch.optim.lr_scheduler.MultiStepLR(optimizer, **_args)
-    elif name == "exponential":
+    elif name == "exponentiallr":
         return torch.optim.lr_scheduler.ExponentialLR(optimizer, **_args)
-    elif name == "cosineannealing":
+    elif name == "cosineannealinglr":
         return torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, **_args)
     elif name == "cosineannealingwarmrestarts":
         return torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer, **_args)
-    elif name == "reduceonplateau":
+    elif name == "reducelronplateau":
         return torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, **_args)
-    elif name == "cyclic":
+    elif name == "cycliclr":
         return torch.optim.lr_scheduler.CyclicLR(optimizer, **_args)
-    elif name == "onecycle":
+    elif name == "onecyclelr":
         return torch.optim.lr_scheduler.OneCycleLR(optimizer, **_args)
     else:
-        raise ValueError(f"LR scheduler '{name}' not implemented")
+        raise ValueError(f"Unknown LR scheduler '{name}'")
