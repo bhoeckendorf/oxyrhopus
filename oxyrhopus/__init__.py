@@ -8,3 +8,4 @@ from hydra.utils import instantiate
 from .config import *
 from .datasets import *
 from .optimizers import *
+from .lr_schedulers import *
